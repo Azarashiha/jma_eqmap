@@ -23,14 +23,10 @@ def wgetc(url):
 
 def e_xml(url):
     response = requests.get(url,headers={'Cache-Control': 'no-cache'})
-    #成功200、
-    
-    #r = requests.get(url).content
+    #成功200
 
     if response.status_code== 200:
-        # jsonモジュールを使用する
-        #print("アクセス成功")
-        #文字化け解消↓
+
         response.encoding = response.apparent_encoding
         xml = response.text
         
@@ -66,10 +62,6 @@ def check():
     rss_url = getRssFeedData()
     #print(rss_url)
     #rss_url='https://www.data.jma.go.jp/developer/xml/data/20220316143844_0_VXSE51_270000.xml'
-    #rss_url='https://www.data.jma.go.jp/developer/xml/data/20220316151110_0_VXSE53_010000.xml'
-    #rss_url='http://www.data.jma.go.jp/developer/xml/data/20211007134424_0_VXSE51_010000.xml'
-    #rss_url='https://www.gpvweather.com/jmaxml-view.php?k=%E9%9C%87%E6%BA%90%E3%83%BB%E9%9C%87%E5%BA%A6%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E6%83%85%E5%A0%B1&p=%E6%B0%97%E8%B1%A1%E5%BA%81&ym=2021-10&f=2021-10-07T13%3A45%3A22-20211007134523_0_VXSE53_010000.xml'
-    #rss_url='https://www.mk-mode.com/rails/jmaxml/2021/10/07/20211007135047_0_VXSE53_010000.xml'
     path = 'data/latest_url.txt'
     #print(rss_url)
     if (rss_url == None):
