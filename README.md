@@ -3,6 +3,8 @@
 *本来python側でスクレイピングした情報をTwitterやDiscordにアップロードするプログラムも含まれていますが、ここにはそれはありません。（key等が含まれるため)
 
 ・スクレイピングされた情報は以下のようにjsonへ書き換えられます。
+
+
 ![image](https://user-images.githubusercontent.com/87087013/204025963-fa094a9c-5414-4155-bcae-c91d081c3e79.png)
 
 
