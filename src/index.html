@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.css" />
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet" />
+    <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script type="text/javascript" src="mapboxgl-control-minimap.js"></script>
+        
+    
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            //PC環境の場合
+            if (window.matchMedia( '(min-width: 1000px)' ).matches) {　//切り替える画面サイズ
+                $.ajax({
+                    url: 'maprender-mbs.js',
+                    dataType: 'script',
+                    cache: false
+               });
+            //モバイル環境の場合
+            } else {
+                $.ajax({
+                    url: 'maprender-mbs.js',//'maprenderer_cell.js',
+                    dataType: 'script',
+                    cache: false
+                });
+            };
+        });
+        </script>
+        
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .map {
+            height: 100vh;
+        }
+        .ui_button{
+            bottom: 100%;
+            position: absolute;
+        }
+    </style>
+    <style>
+        #features {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 30%;
+        overflow: auto;
+        background: rgba(255, 255, 255, 0.5);
+        }
+        #map canvas {
+        cursor: crosshair;
+        }
+
+        #menu {
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    right: 10px;
+    border-radius: 3px;
+    width: 130px;
+    border: 1px solid rgba(0,0,0,0.4);
+}
+
+#menu a {
+    font-size: 13px;
+    color: #404040;
+    display: block;
+    margin: 0;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+#menu a:last-child {
+    border: none;
+}
+
+#menu a:hover {
+    background-color: #f8f8f8;
+    color: #404040;
+}
+
+#menu a.active {
+    background-color: #5c5c5c;
+    color: #ffffff;
+}
+
+#menu a.active:hover {
+    background: #79bb2b;
+}
+
+
+
+    .table{
+        position: absolute;
+    z-index: 1;
+    bottom: 10%;
+    right: 1%;
+    color:#f8f8f8;
+    border-collapse: separate;/*collapse;*/
+    border-spacing: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border: solid 1px white;
+    border-radius: 3px;
+    }
+
+    table td {
+        border-bottom:solid 0.1px white;
+        background-color: black;
+        }
+    
+    
+        </style>
+        
+    <title>test map</title>
+</head>
+<body>
+    <!--<nav id="menu"></nav>-->
+    <div id="map" class="map"></div>
+    <!--<pre id="features"></pre>-->
+    <table class="table" >
+        
+        <tr>
+          <td class="s7"> </td><td align="center">7</td>
+        </tr>
+        <tr>
+          <td class="s6h">　</td><td align="center">6強</td>
+        </tr>
+        <tr>
+            <td class="s6l">　</td><td align="center">6弱</td>
+        </tr>
+        <tr>
+        <td class="s5h">　</td><td align="center">5強</td>
+        </tr>
+        <tr>
+        <td class="s5l">　</td><td align="center">5弱</td>
+        </tr>
+        <tr>
+        <td class="s4">　</td><td align="center">4</td>
+        </tr>
+        <tr>
+        <td class="s3">　</td><td align="center">3</td>
+        </tr>
+        <tr>
+        <td class="s2">　</td><td align="center">2</td>
+        </tr>
+        <tr>
+        <td class="s1">　</td><td align="center">1</td>
+        </tr>
+      </table>
+    
+
+    <div id='before'></div>
+    <div class="cell">
+        <div class="c_int">
+            <div class="c_int_str">
+                <div class="c_int_str_box">
+                    <!--<div id='c_int_text' class="c_int_text"></div>-->
+                </div>
+            </div>
+            <div class="c_audio_str">
+                <div class="c_audio_str_box">
+                    <!--<p class="c_audio_str_box_">地域別震度情報</p>-->
+                    <!--<audio controls src="sample.wav" style="width:70%;"></audio> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+</body>
+</html>
