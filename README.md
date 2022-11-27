@@ -1,5 +1,6 @@
 # jma_eqmap
-気象庁防災情報XMLをスクレイピングし、Mapboxをベースに震度マップを表示します。
+・動作(https://twitter.com/nyaonearthquake?s=21&t=Mdc_mZIr4leeVBJukrF0KA)
+・気象庁防災情報XMLをスクレイピングし、Mapboxをベースに震度マップを表示します。
 *本来python側でスクレイピングした情報をTwitterやDiscordにアップロードするプログラムも含まれていますが、ここにはそれはありません。（key等が含まれるため)
 
 ・スクレイピングされた情報は以下のようにjsonへ書き換えられます。
