@@ -37,11 +37,11 @@ let changeElement = (el)=> {
 }
 //=========================
 
-var url = 'jma_area.json'//'jma_area_e.json'//'https://example.com/x.json';
+var url = 'data/jma_area.json'//'jma_area_e.json'//'https://example.com/x.json';
 $.getJSON(url, function(data){
     areadata=data
 });
-var url = 'jma_city.json'//'jma_area_e.json'//'https://example.com/x.json';
+var url = 'data/jma_city.json'//'jma_area_e.json'//'https://example.com/x.json';
 $.getJSON(url, function(data){
     citydata=data
 });
@@ -67,7 +67,7 @@ console.log('cityデータの数 '+citydata['features'].length)//geojson長さ
 
 console.log(areadata['features'][0]['geometry']['coordinates'][0])
 
-imgfile='image'
+imgfile='data/image'
 map.loadImage(`${imgfile}/epicenter.png`, (error, image) => {
     if (error) throw error;
     if (!map.hasImage('epicenter')) map.addImage('epicenter', image);
