@@ -67,7 +67,7 @@ console.log('cityデータの数 '+citydata['features'].length)//geojson長さ
 
 console.log(areadata['features'][0]['geometry']['coordinates'][0])
 
-imgfile='data/img/V_1'
+imgfile='data/img/v_1'
 map.loadImage(`${imgfile}/epicenter.png`, (error, image) => {
     if (error) throw error;
     if (!map.hasImage('epicenter')) map.addImage('epicenter', image);
